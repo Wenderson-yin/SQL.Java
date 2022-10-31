@@ -1,4 +1,4 @@
-package System.WL;
+package System.WL.DTO;
 
 public class ClienteDTO {
     private String endereco;

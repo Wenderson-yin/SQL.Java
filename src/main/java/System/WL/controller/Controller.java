@@ -1,5 +1,8 @@
-package System.WL;
+package System.WL.controller;
 
+import System.WL.entity.Cliente;
+import System.WL.DTO.ClienteDTO;
+import System.WL.repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

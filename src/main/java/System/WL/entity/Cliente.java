@@ -1,4 +1,4 @@
-package System.WL;
+package System.WL.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
