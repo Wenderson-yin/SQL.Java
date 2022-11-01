@@ -4,8 +4,9 @@ import System.WL.entity.Cliente;
 import System.WL.DTO.ClienteDTO;
 import System.WL.repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
+import javax.validation.Valid;
 import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Optional;
@@ -19,10 +20,9 @@ public class Controller {
 
 
     @PostMapping
-    public Cliente create(@RequestBody Cliente cliente){
+    public Cliente create(@RequestBody @Valid Cliente cliente){
         Cliente clienteSaved = repository.save(cliente);
         return clienteSaved;
-
     }
     @GetMapping("/{id}")
     @ResponseBody
