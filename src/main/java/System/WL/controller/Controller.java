@@ -6,6 +6,7 @@ import System.WL.repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,8 +31,20 @@ public class Controller {
         return clienteReturned;
     }
     @DeleteMapping("/{id}")
-    public void deleteClienteById(@PathVariable Long id){
-        repository.deleteById(id);
+    public String deleteClienteById(@PathVariable Long id){
+        try{
+            Optional<Cliente> cliente = Optional.of(repository.getById(id));
+            if (cliente.isPresent()){
+                repository.deleteById(id);
+                return "Cliente de " + id + "deletado com sucessp!";
+            }else{
+                throw new Exception("Cliente inexistente!");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            return "O cliente de " + id + "não existe para ser deletado!" +
+                    "Por favor, entre em contato com o atendimento 666 666 666";
+        }
     }
     @GetMapping
     public List<Cliente> listClientes(){
