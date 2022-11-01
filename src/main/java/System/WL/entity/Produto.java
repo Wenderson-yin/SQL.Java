@@ -13,14 +13,23 @@ public class Produto {
     private Long id;
     private String nome;
     private Double precoUnitario;
-    private Double precoTOtal;
+    private Double precoTotal;
     private Integer quantidade;
 
-    public Produto(String nome, Double precoUnitario, Double precoTOtal, Integer quantidade) {
+    public Produto(String nome, Double precoUnitario, Double precoTotal, Integer quantidade) {
         this.nome = nome;
         this.precoUnitario = precoUnitario;
-        this.precoTOtal = precoTOtal;
-        this.quantidade = quantidade;
+        Double total = precoUnitario * quantidade;
+        if(precoTotal == total){
+            System.out.printf("O calculo está correto");
+            this.precoTotal = precoTotal;
+        }else{
+            System.out.println("Ó calculo não está correto, mas foi corrigido pela equipe de devs");
+            this.precoTotal = total;
+        }
+        //this.quantidade = quantidade;
+
+
     }
 
     public Produto() {
@@ -43,11 +52,11 @@ public class Produto {
     }
 
     public Double getPrecoTOtal() {
-        return precoTOtal;
+        return precoTotal;
     }
 
     public void setPrecoTOtal(Double precoTOtal) {
-        this.precoTOtal = precoTOtal;
+        this.precoTotal = precoTOtal;
     }
 
     public Integer getQuantidade() {
