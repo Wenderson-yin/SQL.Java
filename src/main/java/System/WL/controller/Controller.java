@@ -2,6 +2,7 @@ package System.WL.controller;
 
 import System.WL.entity.Cliente;
 import System.WL.DTO.ClienteDTO;
+import System.WL.entity.Produto;
 import System.WL.repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -21,6 +22,9 @@ public class Controller {
 
     @PostMapping
     public Cliente create(@RequestBody @Valid Cliente cliente){
+        for (Produto p : cliente.getProdutos()){
+           p.setPrecoTOtal(p.getPrecoTOtal()* p.getQuantidade());
+        }
         Cliente clienteSaved = repository.save(cliente);
         return clienteSaved;
     }
