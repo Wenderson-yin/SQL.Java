@@ -13,14 +13,14 @@ public class Produto {
     private Long id;
     private String nome;
     private Double precoUnitario;
-    private Double precoTOtal;
+    private Double precoTotal;
     private Integer quantidade;
 
-    public Produto(String nome, Double precoUnitario, Double precoTOtal, Integer quantidade) {
+    public Produto(String nome, Double precoUnitario, Double precoTotal, Integer quantidade) {
         this.nome = nome;
-        this.precoUnitario = precoUnitario;
-        this.precoTOtal = precoTOtal;
         this.quantidade = quantidade;
+        this.precoUnitario = precoUnitario;
+        this.precoTotal = precoTotal;
     }
 
     public Produto() {
@@ -43,11 +43,11 @@ public class Produto {
     }
 
     public Double getPrecoTOtal() {
-        return precoTOtal;
+        return precoTotal;
     }
 
     public void setPrecoTOtal(Double precoTOtal) {
-        this.precoTOtal = precoTOtal;
+        this.precoTotal = precoTOtal;
     }
 
     public Integer getQuantidade() {
